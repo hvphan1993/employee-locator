@@ -17,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/hvphan1993/employee-locator/issues"
   },
-  "homepage": "https://github.com/hvphan1993/employee-locator#readme"
+  "homepage": "https://github.com/hvphan1993/employee-locator#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "express": "^4.18.1",
+    "inquirer": "^8.2.4",
+    "mysql2": "^2.3.3"
+  }
 }
