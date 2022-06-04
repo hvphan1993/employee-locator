@@ -1,11 +1,9 @@
 const express = require("express");
-const req = require("express/lib/request");
-const res = require("express/lib/response");
-const inquirer = require("inquirer");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const db = require("./db/connection");
 const apiRoutes = require("./routes/apiRoutes");
+const prompts = require("./lib/prompts");
 
 // Express middleware
 app.use(express.urlencoded({ extended: false }));
