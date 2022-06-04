@@ -1,0 +1,21 @@
+{
+  "name": "employee-locator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hvphan1993/employee-locator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hvphan1993/employee-locator/issues"
+  },
+  "homepage": "https://github.com/hvphan1993/employee-locator#readme"
+}
