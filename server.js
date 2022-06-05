@@ -139,7 +139,7 @@ const addDepartment = () => {
         if (nameInput) {
           return true;
         } else {
-          console.log("Please enter a new department name.");
+          console.log("Please enter a new departments name.");
           return false;
         };
       }
@@ -155,7 +155,7 @@ const addDepartment = () => {
     if (err) {
       throw err;
     }
-    console.log("Department successfully added!");
+    console.log("departments successfully added!");
     return viewDepartments();
   });
   });
@@ -172,21 +172,21 @@ const removeDepartment = () => {
     inquirer.prompt([
       {
         type: "list",
-        name: "department",
-        message: "Which department would you like to remove?",
+        name: "departments",
+        message: "Which departments would you like to remove?",
         choices: departments
       }
     ])
-    .then(departmentAnswer => {
-      const department = departmentAnswer.department
-      const params = department;
+    .then(departmentsAnswer => {
+      const departments = departmentsAnswer.departments
+      const params = departments;
       const sql = `DELETE FROM departments
                     WHERE id = ?`
       db.query(sql, params, (err) => {
         if (err) {
           throw err;
         }
-        console.log("Department deleted!");
+        console.log("departments deleted!");
         return viewDepartments();
       });
     });
@@ -215,7 +215,7 @@ const addRole = () => {
   return inquirer.prompt([
     {
       type: "input",
-      name: "role",
+      name: "title",
       message: "What is the title of this role?",
       validate: nameInput => {
         if (nameInput) {
@@ -251,17 +251,17 @@ const addRole = () => {
       const departments = rows.map(({ name, id }) => ({ name: name, value: id}));
       inquirer.prompt([
         {
-          type: "input",
-          name: "department",
-          message: "Select the department that contains the role.",
+          type: "list",
+          name: "departments",
+          message: "Select the departments that contains the role.",
           choices: departments
         }
       ])
-      .then(departmentAnswer => {
-        const department = departmentAnswer.department;
-        params.push(department);
-        const sql = `INSERT INTO roles (title, salary, department_id)
-                      VALUES (/,/,/)`;
+      .then(departmentsAnswer => {
+        const departments = departmentsAnswer.departments;
+        params.push(departments);
+        const sql = `INSERT INTO roles (title, salary, departments_id)
+                      VALUES (?,?,?)`;
         
         db.query(sql, params, (err) => {
           if (err) {
@@ -292,7 +292,7 @@ const removeRole = () => {
       }
     ])
     .then(roleAnswer => {
-      const department = roleAnswer.roles
+      const departments = roleAnswer.roles
       const params = roles;
       const sql = `DELETE FROM roles
                     WHERE id = ?`
@@ -440,7 +440,25 @@ const removeEmployee = () => {
 
 // "Edit an employee's role",
 // const updateEmployeerole = () => {
-//   const sql = ``
+//   const sql = `SELECT first_name, last_name, id FROM employees`
+    
+//     db.query(sql, (err, rows) => {
+//       if (err) {'
+//         throw err;
+//       }
+//       const employees = rows.map(({ first_name, last_name, id}) => ({ name: `${first_name}` `${last_name}`, value: id}));
+//       inquirer.prompt([
+//         {
+//           type: "list",
+//           name: "employee",
+//           message: "Which employee's role would you like to update?",
+//           choices: employees
+//         }
+//       ])
+//       .then(employeeAnswer => {
+
+//       })
+//     })
 // }
 
 // "Edit an employee's manager",
