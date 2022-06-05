@@ -3,7 +3,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const db = require("./db/connection");
 // const apiRoutes = require("./routes/apiRoutes");
-const prompts = require("./lib/prompts");
+// const prompts = require("./lib/prompts");
 const inquirer = require('inquirer');
 
 // Express middleware
@@ -119,7 +119,7 @@ const viewDepartments = () => {
 
   db.query(sql, (err, rows) => {
     if (err) {
-      res.status(500).json({ error: err.message });
+      console.log("500 error " + (err));
       return;
     }
     console.log("/n");
@@ -309,9 +309,9 @@ const removeRole = () => {
 
 // "View all employees",
 const viewEmployees = () => {
-  const sql = `SELECT employees.id, employees.first_name, employees.last_name, roles.title AS title, roles.salary AS salary,               
+  const sql = `SELECT employees.id, employees.first_name, employees.last_name, roles.title AS title, roles.salary AS salary              
               FROM employees
-              LEFT JOIN departments ON roles.departments_id = departments.id`;
+              LEFT JOIN roles ON roles.id = employees.role_id`;
   db.query(sql, (err, rows) => {
     if (err) {
       throw err;
@@ -439,7 +439,9 @@ const removeEmployee = () => {
 };
 
 // "Edit an employee's role",
-
+// const updateEmployeerole = () => {
+//   const sql = ``
+// }
 
 // "Edit an employee's manager",
 
