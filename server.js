@@ -406,7 +406,37 @@ const addEmployee = () => {
 };
 
 // "Remove an employee",
+const removeEmployee = () => {
+  const sql = `SELECT first_name, last_name, id FROM employees`
 
+  db.query(sql, (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    const employees = rows.map(({ first_name, last_name, id }) => ({ name: `${first_name} ${last_name}`, value: id}));
+    inquirer.prompt([
+      {
+        type: "list",
+        name: "employee",
+        message: "Which employee would you like to remove?",
+        choices: employees
+      }
+    ])
+    .then(employeeAnswer => {
+      const employee = employeeAnswer.employee
+      const params = employee;
+      const sql = `DELETE FROM employees WHERE id =?`
+
+      db.query(sql, params, (err) => {
+        if (err) {
+          throw err;
+        }
+        console.log("The employee has been removed.");
+        return viewEmployees();
+      });
+    });
+  })
+};
 
 // "Edit an employee's role",
 
