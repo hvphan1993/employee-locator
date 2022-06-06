@@ -29,4 +29,5 @@ Here is an example of what the departments table would look like if that was the
 
 ## Links
 Github repository: https://github.com/hvphan1993/employee-locator.git
-Video walkthrough:  
+
+Video walkthrough: https://drive.google.com/file/d/1C2z3Kq5BPX56RlvGp6BlhcGW5JyhKXF0/view

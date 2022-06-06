@@ -2,23 +2,7 @@ const express = require("express");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const db = require("./db/connection");
-// const apiRoutes = require("./routes/apiRoutes");
-// const prompts = require("./lib/prompts");
 const inquirer = require('inquirer');
-
-// Express middleware
-// app.use(express.urlencoded({ extended: false }));
-// app.use(express.json());
-
-// Use apiRoutes
-// app.use("/api", apiRoutes);
-
-// Default response for any other request (Not Found)
-// app.use((req, res) => {
-//   res.status(404).end();
-// });
-
-// HOPEFULLY FIGURE OUT HOW TO ADD THESE TO SEPARATE ROUTE FOLDER FOR PROMPTS and EACH TABLE!
 
 // use inquirer to prompt user questions
 const prompts = () => {
@@ -609,7 +593,7 @@ const viewEmployeesByManager = () => {
           return prompts();
         }
         console.table(rows);
-        return prompts;
+        return prompts();
       });
     });
   });
