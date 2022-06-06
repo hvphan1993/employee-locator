@@ -121,7 +121,6 @@ const viewDepartments = () => {
       console.log("500 error " + (err));
       return;
     }
-    console.log("/n");
     console.table(rows);
     return prompts();
   });
@@ -202,7 +201,6 @@ const viewRoles = () => {
     if (err) {
       throw err;
     }
-      console.log("/n");
       console.table(rows);
       return prompts();
   });
@@ -573,7 +571,6 @@ const viewEmployeesByDepartment = () => {
         if (err) {
           throw err;
         }
-        console.log("\n");
         console.table(rows);
         return prompts();
       });
@@ -611,7 +608,6 @@ const viewEmployeesByManager = () => {
           console.log("This employee is not a manager.");
           return prompts;
         }
-        console.log("/n");
         console.table(rows);
         return prompts;
       });
