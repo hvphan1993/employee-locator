@@ -14,7 +14,7 @@ This project required javascript, node, express, inquirer, and mysql.
 1. Install mysql2, console.table, and inquirer (and any other packages) in your terminal
 2. Make sure the connection.js file has your mysql username and password filled into the corresponding fields
 3. Open mysql using mysql -u root -p and then typing in your password
-4. Get the database using USE employee_tracker
+4. Get the database using CREATE DATABASE employee_tracker; and then USE employee_tracker;
 5. Add in the schema: source db/schema.sql
 6. Add in the seeds file: source db/seeds.sql
 7. Quit mysql
