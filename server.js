@@ -565,7 +565,7 @@ const viewEmployeesByDepartment = () => {
       const sql = `SELECT employees.id, first_name, last_name, departments.name AS department
                     FROM employees
                     LEFT JOIN roles ON employees.role_id = roles.id
-                    LEFT JOIN departments ON roles.department_id = departments.id
+                    LEFT JOIN departments ON roles.departments_id = departments.id
                     WHERE departments.id = ?`;
       db.query(sql, params, (err, rows) => {
         if (err) {
@@ -606,7 +606,7 @@ const viewEmployeesByManager = () => {
         }
         if (rows.length === 0) {
           console.log("This employee is not a manager.");
-          return prompts;
+          return prompts();
         }
         console.table(rows);
         return prompts;
